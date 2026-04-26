@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Chassidus + AI Conference 2026</title>
+<meta name="description" content="The second annual Chassidus + AI Conference. Sunday, 14 June 2026. A virtual gathering on Torah wisdom and frontier technology." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:    #fafaf7;       /* clean editorial off-white */
+    --paper-2:  #f1f0eb;       /* a half-tone for alt sections */
+    --ink:      #14161a;
+    --ink-2:    #2e3138;
+    --ink-3:    #6a6e76;
+    --ink-mute: #9a9ea6;
+    --rule:     rgba(20, 22, 26, 0.14);
+    --rule-2:   rgba(20, 22, 26, 0.32);
+    --accent:   #0d3a4a;       /* deep ink-teal — used sparingly */
+    --night:    #03081a;       /* logo's native habitat */
+  }
+
+  *,*::before,*::after{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-variation-settings: "opsz" 16;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  main, header, footer{ position: relative; }
+
+  a{ color: inherit; text-decoration: none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width: 1240px; margin: 0 auto; padding: 0 36px; }
+  .wrap-narrow{ max-width: 720px; margin: 0 auto; padding: 0 36px; }
+  @media(max-width:640px){
+    .wrap, .wrap-narrow{ padding: 0 22px; }
+    body{ font-size: 17px; }
+  }
+
+  /* ====================== TYPE ====================== */
+  h1, h2, h3, h4{
+    font-family: 'Newsreader', serif;
+    font-weight: 400;
+    margin: 0;
+  }
+  h1{
+    font-variation-settings: "opsz" 72;
+    font-size: clamp(48px, 8.4vw, 124px);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+  }
+  h2{
+    font-variation-settings: "opsz" 60;
+    font-size: clamp(34px, 4.6vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+  }
+  h3{
+    font-variation-settings: "opsz" 36;
+    font-size: clamp(22px, 2.2vw, 28px);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  em, .it{ font-style: italic; }
+
+  .label{
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 14;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    color: var(--ink-3);
+  }
+  .smallcap{
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 14;
+    font-weight: 500;
+    font-size: 12.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+
+  /* ====================== HEADER ====================== */
+  header{
+    border-bottom: 1px solid var(--rule);
+  }
+  .head-row{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 0;
+  }
+  .word{
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 24;
+    font-weight: 500;
+    font-size: 19px;
+    letter-spacing: -0.005em;
+    display: flex; align-items: baseline; gap: 9px;
+  }
+  .word .amp{ font-style: italic; color: var(--ink-3); font-weight: 400; }
+  .word .yr{
+    color: var(--ink-3);
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .head-nav{ display: flex; align-items: center; gap: 30px; }
+  .head-nav a{
+    font-size: 15px;
+    color: var(--ink-2);
+    transition: color .2s;
+  }
+  .head-nav a:hover{ color: var(--ink); }
+  .head-nav .reserve{
+    color: var(--ink);
+    font-style: italic;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 1px;
+  }
+  .head-nav .reserve:hover{ color: var(--accent); border-color: var(--accent); }
+  @media(max-width: 820px){
+    .head-nav a:not(.reserve){ display: none; }
+  }
+
+  /* ====================== HERO ====================== */
+  .hero{
+    padding: 90px 0 110px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .hero-meta{
+    display: flex; gap: 28px; flex-wrap: wrap;
+    margin-bottom: 56px;
+    color: var(--ink-3);
+    font-size: 15px;
+  }
+  .hero-meta .dot{ color: var(--ink-mute); }
+  .hero-meta strong{ color: var(--ink); font-weight: 500; }
+
+  .hero-grid{
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 70px;
+    align-items: end;
+  }
+  @media(max-width: 980px){
+    .hero-grid{ grid-template-columns: 1fr; gap: 56px; }
+  }
+
+  .hero h1 .second-line{ display: block; }
+  .hero h1 em{
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .lede{
+    font-size: clamp(20px, 1.7vw, 23px);
+    line-height: 1.5;
+    color: var(--ink-2);
+    margin: 44px 0 0;
+    max-width: 56ch;
+  }
+
+  .actions{
+    display: flex; gap: 14px; flex-wrap: wrap;
+    margin-top: 44px;
+  }
+  .btn{
+    display: inline-flex; align-items: baseline; gap: 10px;
+    padding: 14px 24px;
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 18;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    transition: all .25s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0;
+  }
+  .btn-fill{
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-fill:hover{ background: var(--accent); }
+  .btn-line{
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--rule-2);
+  }
+  .btn-line:hover{ border-color: var(--ink); background: rgba(26,22,18,.04); }
+  .btn em{
+    color: inherit;
+    opacity: .7;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .btn .arr{ display: inline-block; transition: transform .25s; }
+  .btn:hover .arr{ transform: translateX(3px); }
+
+  /* logo as a printed plate — just contained, nothing decorative */
+  .logo-plate{
+    background: var(--night);
+    border-radius: 6px;
+    padding: 38px 26px 32px;
+    box-shadow:
+      0 1px 2px rgba(26, 22, 18, .15),
+      0 12px 32px -16px rgba(26, 22, 18, .35);
+    position: relative;
+  }
+  .logo-plate img{
+    width: 100%;
+    height: auto;
+    mix-blend-mode: lighten;
+  }
+  .logo-plate-cap{
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(244, 237, 224, .14);
+    color: rgba(244, 237, 224, .65);
+    font-size: 14px;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.4;
+  }
+
+  /* ====================== SECTIONS ====================== */
+  section{ padding: 110px 0; position: relative; }
+  @media(max-width:780px){ section{ padding: 80px 0; } }
+
+  .section-rule{ border-top: 1px solid var(--rule); }
+  .alt{ background: var(--paper-2); }
+
+  /* the editorial intro section */
+  .intro h2{ max-width: 22ch; }
+  .intro-body{
+    margin-top: 56px;
+    column-count: 2;
+    column-gap: 56px;
+    font-size: 18.5px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 1080px;
+  }
+  .intro-body p{ margin: 0 0 1em; break-inside: avoid; }
+  .intro-body p:first-child::first-letter{
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 72;
+    font-weight: 400;
+    font-size: 5.6em;
+    line-height: 0.85;
+    float: left;
+    margin: 0.06em 0.08em -0.05em 0;
+    color: var(--ink);
+  }
+  @media(max-width: 820px){
+    .intro-body{ column-count: 1; }
+  }
+
+  /* lineage — historic continuum, prose-led */
+  .lineage{
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .lineage-grid{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+  }
+  @media(max-width:980px){ .lineage-grid{ grid-template-columns: 1fr; gap: 48px; } }
+  .lineage h2 em{ font-style: italic; }
+  .lineage-body p{
+    color: var(--ink-2);
+    font-size: 18px;
+    line-height: 1.75;
+    margin: 0 0 1.2em;
+  }
+  .lineage-body p:first-child{
+    font-size: 21px;
+    color: var(--ink);
+    line-height: 1.5;
+    font-style: italic;
+  }
+  .lineage-list{
+    margin-top: 36px;
+    border-top: 1px solid var(--rule);
+  }
+  .lineage-list .item{
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 32px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: baseline;
+  }
+  .lineage-list .yr{
+    font-style: italic;
+    color: var(--ink-3);
+    font-size: 17px;
+  }
+  .lineage-list .what{
+    font-size: 19px;
+    color: var(--ink);
+  }
+  .lineage-list .item.now .yr{ color: var(--accent); }
+  .lineage-list .item.now .what{
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  /* who joins us — three vignettes */
+  .joins h2{ max-width: 18ch; margin-bottom: 64px; }
+  .joins-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--rule);
+  }
+  @media(max-width:980px){
+    .joins-list{ grid-template-columns: 1fr; }
+  }
+  .vignette{
+    padding: 38px 36px 42px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .vignette:last-child{ border-right: 0; }
+  @media(max-width:980px){
+    .vignette{ border-right: 0; }
+  }
+  .vignette .num{
+    font-style: italic;
+    color: var(--ink-3);
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .vignette h3{ margin-bottom: 16px; }
+  .vignette h3 em{ color: var(--ink-3); font-weight: 400; }
+  .vignette p{
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-2);
+    margin: 0;
+  }
+
+  /* present section */
+  .present{
+    background: var(--paper-2);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .present-grid{
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  @media(max-width:980px){ .present-grid{ grid-template-columns: 1fr; gap: 48px; } }
+
+  .present-prose h2{ max-width: 14ch; margin-bottom: 28px; }
+  .present-prose p{
+    font-size: 18.5px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    max-width: 50ch;
+    margin: 0 0 1em;
+  }
+  .present-prose .pull{
+    font-style: italic;
+    font-size: 22px;
+    line-height: 1.4;
+    color: var(--ink);
+    margin: 32px 0 28px;
+    max-width: 36ch;
+  }
+
+  .submit-block h4{
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 24;
+    font-size: 22px;
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule-2);
+    color: var(--ink);
+  }
+  .submit-block + .submit-block{ margin-top: 48px; }
+  .submit-block ul{
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .submit-block li{
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+  }
+  .submit-block li:last-child{ border-bottom: 0; }
+  .submit-block li::before{
+    content: counter(submission, lower-roman) ".";
+    counter-increment: submission;
+    color: var(--ink-3);
+    font-style: italic;
+    font-size: 16px;
+  }
+  .submit-block ul{ counter-reset: submission; }
+
+  /* register — a quiet dark callout, not a glowing one */
+  .register{
+    background: var(--ink);
+    color: var(--paper);
+    text-align: left;
+  }
+  .register-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+  }
+  @media(max-width:880px){ .register-grid{ grid-template-columns: 1fr; gap: 40px; } }
+  .register h2{
+    color: var(--paper);
+    max-width: 14ch;
+  }
+  .register h2 em{ font-style: italic; color: rgba(244, 237, 224, .68); }
+  .register p{
+    color: rgba(244, 237, 224, .72);
+    font-size: 18px;
+    line-height: 1.65;
+    max-width: 50ch;
+    margin: 0 0 28px;
+  }
+  .register .label{ color: rgba(244, 237, 224, .55); margin-bottom: 24px; display: block; }
+  .register .btn-fill{
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .register .btn-fill:hover{ background: #fff; }
+  .register .btn-line{
+    color: var(--paper);
+    border-color: rgba(244, 237, 224, .35);
+  }
+  .register .btn-line:hover{ border-color: var(--paper); background: rgba(244,237,224,.06); }
+
+  /* faq */
+  .faq h2{ margin-bottom: 56px; }
+  .faq-list{
+    border-top: 1px solid var(--rule);
+  }
+  .faq-list details{
+    border-bottom: 1px solid var(--rule);
+    padding: 26px 0;
+    cursor: pointer;
+  }
+  .faq-list summary{
+    list-style: none;
+    display: flex; justify-content: space-between; align-items: baseline;
+    gap: 24px;
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 36;
+    font-weight: 400;
+    font-size: clamp(20px, 2vw, 24px);
+    color: var(--ink);
+    transition: color .2s;
+  }
+  .faq-list summary::-webkit-details-marker{ display: none; }
+  .faq-list summary::marker{ content: ""; }
+  .faq-list summary:hover{ color: var(--accent); }
+  .faq-list summary .plus{
+    flex-shrink: 0;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-3);
+    transition: transform .3s;
+  }
+  .faq-list details[open] summary .plus{ transform: rotate(45deg); }
+  .faq-list details p{
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--ink-2);
+    margin: 18px 0 0;
+    max-width: 70ch;
+  }
+
+  /* footer */
+  footer{
+    border-top: 1px solid var(--rule);
+    padding: 60px 0 50px;
+    background: var(--paper);
+  }
+  .foot-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+  }
+  @media(max-width:780px){ .foot-grid{ grid-template-columns: 1fr; gap: 32px; } }
+  .foot-grid p{
+    font-size: 14.5px;
+    color: var(--ink-3);
+    line-height: 1.65;
+    margin: 0;
+    max-width: 48ch;
+  }
+  .foot-grid a{ color: var(--ink-2); border-bottom: 1px solid var(--rule-2); }
+  .foot-grid a:hover{ color: var(--ink); border-color: var(--ink); }
+  .foot-right{ text-align: right; }
+  @media(max-width:780px){ .foot-right{ text-align: left; } }
+  .foot-right .colophon{
+    color: var(--ink-mute);
+    font-size: 13.5px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* a single, restrained entrance */
+  .fade{ opacity: 0; transform: translateY(10px); transition: opacity .9s ease, transform .9s ease; }
+  .fade.in{ opacity: 1; transform: none; }
+  @media(prefers-reduced-motion: reduce){
+    .fade{ opacity: 1; transform: none; }
+  }
+
+  ::selection{ background: var(--accent); color: var(--paper); }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap head-row">
+    <a class="word" href="#top">
+      Chassidus <span class="amp">&amp;</span> AI <span class="yr">Conference</span>
+    </a>
+    <nav class="head-nav">
+      <a href="#about">About</a>
+      <a href="#lineage">Lineage</a>
+      <a href="#joins">Who Joins Us</a>
+      <a href="#present">Present</a>
+      <a href="#faq">FAQ</a>
+      <a href="#register" class="reserve">Reserve a seat</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="hero-meta fade">
+        <span><strong>Sunday</strong>, 14 June 2026</span>
+        <span class="dot">·</span>
+        <span>Sivan 29, 5786</span>
+        <span class="dot">·</span>
+        <span>1—4 PM EDT</span>
+        <span class="dot">·</span>
+        <span>Online, worldwide</span>
+      </div>
+
+      <div class="hero-grid">
+        <div>
+          <h1 class="fade">
+            Accelerating
+            <span class="second-line"><em>the Wellsprings.</em></span>
+          </h1>
+          <p class="lede fade">
+            The Chassidus + AI Conference returns for its second year — a small, deliberate gathering of the people building, teaching, and thinking at the seam where Torah's inwardness meets the newest technology of the age.
+          </p>
+          <div class="actions fade">
+            <a href="#register" class="btn btn-fill">Reserve a seat <span class="arr">→</span></a>
+            <a href="#present" class="btn btn-line">Apply to present <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <aside class="logo-plate fade">
+          <img src="logo.png" alt="Chassidus + AI Conference 2026 mark — a constellation of nodes forming an X, encircled by an orbit ring." />
+          <div class="logo-plate-cap">Volume II · 2026</div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO / THE REVOLUTION CONTINUES ============ -->
+  <section id="about" class="intro">
+    <div class="wrap">
+      <h2 class="fade">The revolution, <em>quietly continuing.</em></h2>
+      <div class="intro-body fade">
+        <p>Last summer, a group of developers, educators, and curious learners gathered for the first time around a question that, until very recently, would have sounded strange even to ask: what does it mean for the deepest teachings of Chassidus to be read, translated, and explained by a machine?</p>
+        <p>The answers, as it turned out, were less strange than the question. People are already doing it. They are building tutors that walk a student through a difficult ma'amar, translation tools that handle the dense Hebrew-Aramaic-Yiddish layering of a Chassidic text, visualization platforms that map abstract spiritual concepts into something a teenager can hold in their head.</p>
+        <p>This year we return — to see what the year produced, to hear from the people doing the work, and to think together about where this is going. The day is short, the room is small, and the conversations have, in our experience, a way of becoming the year's most interesting.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LINEAGE ============ -->
+  <section id="lineage" class="lineage">
+    <div class="wrap">
+      <div class="lineage-grid">
+        <div class="fade">
+          <p class="label">On precedent</p>
+          <h2>Why this <em>moment.</em></h2>
+        </div>
+        <div class="lineage-body fade">
+          <p>In each generation, the Chabad-Lubavitch movement has taken hold of the newest medium of its day and turned it toward Torah.</p>
+          <p>Movable type put printed sefarim into the hands of ordinary householders. Radio carried farbrengens across continents. Television brought the Rebbe's words into living rooms in real time. The early internet, against the instincts of its skeptics, proved to be one of the most consequential platforms for Jewish outreach the world has known.</p>
+          <p>Artificial intelligence is the medium of the next decade. The work — to translate, to teach, to bring the inner dimensions of Torah to the next person and the further place — continues.</p>
+          <ul class="lineage-list" style="list-style:none;padding:0;">
+            <li class="item"><span class="yr">1454</span><span class="what">The printing press.</span></li>
+            <li class="item"><span class="yr">1920s</span><span class="what">Radio.</span></li>
+            <li class="item"><span class="yr">1948</span><span class="what">Television.</span></li>
+            <li class="item"><span class="yr">1989</span><span class="what">The public internet.</span></li>
+            <li class="item now"><span class="yr">2026</span><span class="what">Artificial intelligence.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHO JOINS US ============ -->
+  <section id="joins" class="joins">
+    <div class="wrap">
+      <p class="label fade">Who joins us</p>
+      <h2 class="fade">Three kinds of <em>people</em>, in one room.</h2>
+
+      <div class="joins-list fade">
+
+        <article class="vignette">
+          <div class="num">i.</div>
+          <h3>Builders &amp; <em>developers</em></h3>
+          <p>If you are building something — a translation tool, an interactive visualization, an AI tutor, a half-finished prototype that has been keeping you up at night — there is a stage here for it, and an audience that will want to see what comes next.</p>
+        </article>
+
+        <article class="vignette">
+          <div class="num">ii.</div>
+          <h3>Educators &amp; <em>teachers</em></h3>
+          <p>For those who teach Chassidus in any form to anyone, this is a chance to see what is now possible: tools that meet a student where they are, that map abstract ideas into something tangible, that can render the un-translatable into a working draft.</p>
+        </article>
+
+        <article class="vignette">
+          <div class="num">iii.</div>
+          <h3>Learners &amp; <em>seekers</em></h3>
+          <p>If you are simply curious — a learner, a parent, a person who senses something is happening at this intersection and wants to understand it — you are welcome. The most interesting conversations happen at this kind of edge.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRESENT ============ -->
+  <section id="present" class="present">
+    <div class="wrap">
+
+      <div class="present-grid">
+        <div class="present-prose fade">
+          <p class="label">A call for builders</p>
+          <h2>Are you building <em>something</em>?</h2>
+          <p>We are looking for developers, educators, and tech-curious thinkers who have built something — anything — at the intersection of Chassidus and AI. A finished platform, a prototype that runs only on your laptop, a clever conceptual demo that has not yet found its first user. The bar is interest, not polish.</p>
+          <p class="pull">Show us what you've made. Tell us what it is for. Bring the rough edges.</p>
+          <div class="actions">
+            <a href="#" class="btn btn-fill">Submit a proposal <span class="arr">→</span></a>
+          </div>
+        </div>
+
+        <div class="fade">
+          <div class="submit-block">
+            <h4>What we are looking for</h4>
+            <ul>
+              <li>Translation and summarization tools for dense Chassidic texts.</li>
+              <li>Generative platforms that turn concepts into images, audio, or interactive experiences.</li>
+              <li>Personalized learning environments and AI study partners.</li>
+              <li>Conceptual demos and provocations — finished or not.</li>
+            </ul>
+          </div>
+          <div class="submit-block">
+            <h4>What you'll get</h4>
+            <ul>
+              <li>A focused stage and a thoughtful audience.</li>
+              <li>Honest feedback from peers and people further down the road.</li>
+              <li>The contacts, collaborators, and quiet support that tend to follow.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REGISTER ============ -->
+  <section id="register" class="register">
+    <div class="wrap">
+      <div class="register-grid">
+        <div class="fade">
+          <span class="label" style="color:rgba(244,237,224,.55)">A note on registration</span>
+          <h2>Reserve a <em>seat.</em></h2>
+        </div>
+        <div class="fade">
+          <p>Admission is free. The room is finite. We give preference to those actively involved in advancing Jewish education and technology, and to those presenting work. Registered attendees receive a calendar invite ahead of the conference and full recordings shortly after.</p>
+          <div class="actions">
+            <a href="#" class="btn btn-fill">Reserve your seat <span class="arr">→</span></a>
+            <a href="#" class="btn btn-line">Email the organisers <span class="arr">→</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" class="faq">
+    <div class="wrap">
+      <p class="label fade">Practical matters</p>
+      <h2 class="fade">Frequently <em>asked.</em></h2>
+
+      <div class="faq-list fade">
+        <details>
+          <summary>Who is this for?<span class="plus">+</span></summary>
+          <p>Anyone seriously interested in the intersection of Chassidus, technology, and Jewish education — developers, teachers, students, rabbinic leaders, and curious learners. There is no formal background requirement.</p>
+        </details>
+        <details>
+          <summary>Is there a cost to attend?<span class="plus">+</span></summary>
+          <p>No. The conference is free of charge. Registration is required, and we ask that you only register if you genuinely intend to attend, since virtual seats are limited.</p>
+        </details>
+        <details>
+          <summary>How do I propose a presentation?<span class="plus">+</span></summary>
+          <p>Use the "Submit a proposal" link above. Tell us what you've built or are building, what it is for, what stage it is at, and what you would need around 8–12 minutes on stage to show. We read every submission.</p>
+        </details>
+        <details>
+          <summary>Will the sessions be recorded?<span class="plus">+</span></summary>
+          <p>Yes. As with last year, all registered attendees will receive full recordings, with captions, in the days following the conference.</p>
+        </details>
+        <details>
+          <summary>What language is the conference in?<span class="plus">+</span></summary>
+          <p>Primarily English, with Hebrew, Aramaic, and Yiddish source material referenced as it comes up. Recordings are captioned in English.</p>
+        </details>
+        <details>
+          <summary>Is there a code of conduct?<span class="plus">+</span></summary>
+          <p>Yes. We expect respectful, generous, and honest engagement from speakers and attendees alike. The full text is sent with the calendar invitation upon registration.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap foot-grid">
+    <div>
+      <p class="word" style="margin-bottom:18px;">
+        Chassidus <span class="amp">&amp;</span> AI
+      </p>
+      <p>
+        An annual gathering on Torah's inner dimensions and frontier technology.
+        For questions, sponsorship, or press: <a href="mailto:ChassidusAIConference@gmail.com">ChassidusAIConference@gmail.com</a>.
+      </p>
+    </div>
+    <div class="foot-right">
+      <p class="colophon">
+        &copy; 2026 The Chassidus + AI Conference. <br/>
+        Set in Newsreader.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // a single quiet entrance — nothing more
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
