@@ -20,7 +20,8 @@
     --ink-mute: #9a9ea6;
     --rule:     rgba(20, 22, 26, 0.14);
     --rule-2:   rgba(20, 22, 26, 0.32);
-    --accent:   #0d3a4a;       /* deep ink-teal — used sparingly */
+    --accent:   #0d2347;       /* deep navy — drawn from the logo */
+    --accent-2: #1a3a78;       /* lighter navy for hover/active */
     --night:    #03081a;       /* logo's native habitat */
   }
 
@@ -126,6 +127,13 @@
     color: var(--ink-mute);
     font-size: 10px;
   }
+  .head-strip [lang="he"]{
+    /* Frank Ruhl Libre reads visually smaller than uppercase Latin at the same px;
+       bump up to match the cap-height of the surrounding smallcap text */
+    font-size: 14.5px;
+    font-weight: 600;
+    line-height: 1;
+  }
   @media(max-width: 640px){
     .head-strip{ font-size: 11px; letter-spacing: 0.14em; }
     .head-strip .wrap{ gap: 6px 10px; }
@@ -162,12 +170,12 @@
   }
   .head-nav a:hover{ color: var(--ink); }
   .head-nav .reserve{
-    color: var(--ink);
+    color: var(--accent);
     font-style: italic;
-    border-bottom: 1px solid var(--ink);
+    border-bottom: 1px solid var(--accent);
     padding-bottom: 1px;
   }
-  .head-nav .reserve:hover{ color: var(--accent); border-color: var(--accent); }
+  .head-nav .reserve:hover{ color: var(--accent-2); border-color: var(--accent-2); }
   @media(max-width: 820px){
     .head-nav a:not(.reserve){ display: none; }
   }
@@ -269,16 +277,16 @@
     border-radius: 0;
   }
   .btn-fill{
-    background: var(--ink);
+    background: var(--accent);
     color: var(--paper);
   }
-  .btn-fill:hover{ background: var(--accent); }
+  .btn-fill:hover{ background: var(--accent-2); }
   .btn-line{
     background: transparent;
-    color: var(--ink);
+    color: var(--accent);
     border-color: var(--rule-2);
   }
-  .btn-line:hover{ border-color: var(--ink); background: rgba(20, 22, 26, .04); }
+  .btn-line:hover{ border-color: var(--accent); background: rgba(13, 35, 71, .05); }
   .btn em{
     color: inherit;
     opacity: .7;
@@ -386,9 +394,9 @@
     max-width: 40ch;
   }
 
-  /* register — a quiet dark callout, not a glowing one */
+  /* register — deep navy callout, drawn from the logo's blue world */
   .register{
-    background: var(--night);
+    background: var(--accent);
     color: var(--paper);
     text-align: left;
   }
@@ -414,9 +422,9 @@
   .register .label{ color: rgba(244, 237, 224, .55); margin-bottom: 24px; display: block; }
   .register .btn-fill{
     background: var(--paper);
-    color: var(--ink);
+    color: var(--accent);
   }
-  .register .btn-fill:hover{ background: #fff; }
+  .register .btn-fill:hover{ background: #fff; color: var(--accent-2); }
   .register .btn-line{
     color: var(--paper);
     border-color: rgba(244, 237, 224, .35);
@@ -548,7 +556,7 @@
 
         <div class="event-meta fade">
           <p class="event-date">Sunday, 14 June 2026</p>
-          <p class="event-date-he" lang="he" dir="rtl">כ״ט סיון ה׳תשפ״ו</p>
+          <p class="event-date-he" lang="he">כ״ט סיון ה׳תשפ״ו</p>
           <p class="event-details">
             <span>1—4 PM EDT</span>
             <span class="sep">·</span>
