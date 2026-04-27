@@ -144,14 +144,36 @@
     border-bottom: 1px solid var(--rule);
     position: relative;
   }
-  .hero-meta{
-    display: flex; gap: 28px; flex-wrap: wrap;
-    margin-bottom: 56px;
-    color: var(--ink-3);
-    font-size: 15px;
+
+  /* event-meta block — the prominent date display */
+  .event-meta{
+    margin: 0 0 44px;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
   }
-  .hero-meta .dot{ color: var(--ink-mute); }
-  .hero-meta strong{ color: var(--ink); font-weight: 500; }
+  .event-date{
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 60;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .event-details{
+    margin: 14px 0 0;
+    font-family: 'Newsreader', serif;
+    font-variation-settings: "opsz" 14;
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+    display: flex; flex-wrap: wrap; gap: 14px;
+  }
+  .event-details .sep{ color: var(--ink-mute); }
 
   /* hero image — dominant visual element */
   .hero-image{
@@ -469,17 +491,19 @@
         <img src="logo.png" alt="Chassidus + AI Conference 2026" />
       </figure>
 
-      <div class="hero-meta fade">
-        <span><strong>Sunday</strong>, 14 June 2026</span>
-        <span class="dot">·</span>
-        <span>Sivan 29, 5786</span>
-        <span class="dot">·</span>
-        <span>1—4 PM EDT</span>
-        <span class="dot">·</span>
-        <span>Online, worldwide</span>
-      </div>
-
       <div class="hero-text">
+
+        <div class="event-meta fade">
+          <p class="event-date">Sunday, 14 June 2026</p>
+          <p class="event-details">
+            <span>1—4 PM EDT</span>
+            <span class="sep">·</span>
+            <span>Online, worldwide</span>
+            <span class="sep">·</span>
+            <span>29 Sivan, 5786</span>
+          </p>
+        </div>
+
         <h1 class="fade">
           Bringing Chassidus <em>to the world.</em>
         </h1>
@@ -487,11 +511,11 @@
           The Chassidus + AI Conference returns for its second year — a global gathering of the developers, educators, and learners using artificial intelligence to make the wellsprings of Chassidic thought accessible to more people, in more languages, than ever before.
         </p>
         <div class="actions fade">
-          <a href="#register" class="btn btn-fill">Reserve a seat <span class="arr">→</span></a>
-          <a href="#present" class="btn btn-line">Apply to present <span class="arr">→</span></a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw5IXlfmOairlkq3u6VENfzEMY-PlFgH_ONxwZeRGzTqWBhw/viewform" target="_blank" rel="noopener" class="btn btn-fill">Reserve a seat <span class="arr">→</span></a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfw5IXlfmOairlkq3u6VENfzEMY-PlFgH_ONxwZeRGzTqWBhw/viewform" target="_blank" rel="noopener" class="btn btn-line">Apply to present <span class="arr">→</span></a>
         </div>
-      </div>
 
+      </div>
     </div>
   </section>
 
