@@ -101,7 +101,7 @@ const SESSIONS = [
   {
     n: "12", photo: "stern", initials: "RS",
     speaker: "Rabbi Rayi Stern",
-    role: "AI at Americas · Shluchim Exchange",
+    role: "AI at Merkos 302 · Shluchim Exchange",
     title: "Shared Infrastructure / MCP",
     body: "Goal: empower shluchim to offload busywork. Demoed an MCP that connects a Torah corpus into Claude/ChatGPT (and into apps others build), with skills layered on top (\u201cmake me a shiur\u201d \u2192 downloadable step-by-step artifact). A self-healing system that improves with use and open-source skill contributions. Two-way MCP communication is in the works; currently gated for shluchim with plans to open access, and generous arrangements for developers who want to build on it."
   },
